@@ -1,0 +1,14 @@
+body{
+    background-color: #E3D7BE;
+    text-align: center;
+}
+
+.navbar-brand img {
+
+    max-height: 40px; /* Ajuste conforme necessário */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
+}
+
+nav {
+    background-color: #E5600A;
+}

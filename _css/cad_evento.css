@@ -1,0 +1,155 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: rgb(255,146,83);
+  background: radial-gradient(circle, rgba(255,146,83,1) 70%, rgba(0,0,0,1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+h2{
+  color: #fff;
+}
+.login-box {
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  
+
+}
+.logo {
+  position: absolute;
+  top: -300px; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* Garante que a imagem fique acima dos campos de entrada */
+}
+
+
+.user-box {
+  position: relative;
+  display: block;
+  margin-bottom: 20px; /* Adicionado um espaçamento entre os elementos */
+}
+
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color:white;
+  font-size: 12px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button, .back-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color:white;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 20px; /* Ajuste conforme necessário */
+  letter-spacing: 4px;
+  border: none;
+  background: transparent;
+}
+
+.login-button:hover, .back-button:hover {
+  background: #white;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px white,
+              0 0 25px white,
+              0 0 50px white,
+              0 0 100px white;
+}
+
+.login-button span, .back-button span {
+  position: absolute;
+  display: block;
+}
+
+.login-button span:nth-child(1), .back-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent,#white);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+      left: -100%;
+  }
+  50%,100% {
+      left: 100%;
+  }
+}
+
+.login-button span:nth-child(2), .back-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent,#white);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+      top: -100%;
+  }
+  50%,100% {
+      top: 100%;
+  }
+}
+
+.credit {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color:  black;
+  font-size: 12px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

@@ -1,0 +1,20 @@
+
+/* Estilos para o formulário */
+.form-group label {
+    color: orange; /* Cor laranja para os rótulos */
+}
+
+.form-control {
+    border-color: orange; /* Cor da borda laranja para os inputs */
+}
+
+/* Cor de fundo preto para o botão */
+.btn-primary {
+    background-color: black;
+    border-color: black;
+}
+
+/* Cor do texto no botão */
+.btn-primary:hover {
+    color: orange;
+}
