@@ -1,0 +1,65 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "autopeca";
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
+}
+
+
+if (isset($_GET['codigo'])) {
+   
+    $codigoPeca = $conn->real_escape_string($_GET['codigo']);
+    
+
+    $sql = "SELECT nome, valor_venda FROM pecas WHERE id = ?";
+    
+  
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+   
+        $stmt->bind_param("i", $codigoPeca);
+   
+        $stmt->execute();
+        
+      
+        $result = $stmt->get_result();
+      
+        if ($result->num_rows > 0) {
+          
+            $row = $result->fetch_assoc();
+            
+         
+            $response = array("success" => true, "nomePeca" => $row["nome_peca"], "valorVenda" => $row["valor_venda"]);
+        } else {
+           
+            $response = array("success" => false, "message" => "Peça não encontrada.");
+        }
+        
+     
+        $stmt->close();
+    } else {
+       
+        $response = array("success" => false, "message" => "Erro na preparação da consulta: " . $conn->error);
+    }
+} else {
+    
+    $response = array("success" => false, "message" => "Parâmetro 'codigo' não fornecido.");
+}
+
+
+$conn->close();
+
+
+header('Content-Type: application/json');
+
+
+echo json_encode($response);
+?>

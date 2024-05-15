@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autopeças</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Autopeças</h1>
+        <button onclick="showForm()">Adicionar Peça</button>
+        <div id="formContainer" style="display: none;">
+            <form action="add_part.php" method="POST">
+                <input type="text" name="nome" placeholder="Nome da Peça" required>
+                <input type="text" name="fornecedor" placeholder="Fornecedor" required>
+                <input type="number" name="valor_compra" placeholder="Valor de Compra" step="0.01" required>
+                <input type="number" name="valor_venda" placeholder="Valor de Venda" step="0.01" required>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+        <div id="partsList">
+            <!-- Lista de peças será carregada aqui através de PHP -->
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
